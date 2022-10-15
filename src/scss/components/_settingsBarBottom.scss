@@ -1,0 +1,47 @@
+@use '../utilities/mixins' as *;
+
+.settingsbar-bottom-border {
+    position: relative;
+    left: -115%;
+    transition: left 400ms ease-in-out;
+    height: calc(50% - 27px);
+    background: linear-gradient(-225deg, var(--gradient-clr1) 0%, var(--gradient-clr2) 100%);
+    border-top-right-radius: var(--border-radius-2);
+    padding: 1px 1px 0 0; 
+
+    .settingsbar-bottom {
+        @include defaultFlex;
+        background: var(--primary-clr);
+        height: 100%;
+        border-top-right-radius: 3px;
+        padding: 8px 0;
+
+        .lightmode-toggle-container {
+            width: 34px;
+
+            .lightmode-toggle {
+                @include defaultFlex;
+                height: 40px;
+                background: var(--secondary-clr);
+                border-radius: var(--border-radius-2);
+                cursor: pointer;
+
+                &.active svg {
+                    transform: scale(1.05);
+                    transition: transform 265ms;
+                    fill: var(--turquoise-clr);
+                }
+
+                &:not(.active) svg {
+                    transform: scale(.83);
+                    transition: transform 265ms;
+                    fill: var(--white-clr);
+                }
+            }
+
+            .lightmode-toggle-dark {
+                margin-top: 8px;
+            }
+        }
+    }
+}

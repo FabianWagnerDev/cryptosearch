@@ -1,0 +1,473 @@
+// utilities
+@use './utilities/variables' as *;
+
+// components
+@use './components/settingsBar.scss';
+@use './components/settingsBarTop.scss';
+@use './components/settingsBarMiddle.scss';
+@use './components/settingsBarBottom.scss';
+@use './components/settingsBtnMobile';
+@use './components/searchBar.scss';
+@use './components/coinListingHeader.scss';
+@use './components/coinListing.scss';
+@use './components/footer.scss';
+@use './components/backToTop.scss';
+
+// fonts
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*,*::before,*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Poppins, sans-serif;
+    letter-spacing: .05px;
+    font-weight: 300;
+    color: var(--white-clr);
+    -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+    color: var(--primary-clr);
+    background: var(--white-clr);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    background: var(--primary-clr);
+    overflow-y: scroll;
+    font-size: 16px;
+}
+
+.crypto-app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--white-clr);
+    width: 860px;
+    padding-top: 100px;
+
+    .coin-listings-container {
+        min-height: calc(100vh - 100px);
+        width: 100%;
+    }
+}
+
+/* Chrome + Safari Scrollbar */
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--primary-clr);
+}
+
+body::-webkit-scrollbar-thumb {
+    height: 22px;
+    background: var(--primary-clr);
+    border-radius: 2px;
+    border: 1px solid var(--secondary-clr);
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: hsl(240, 4%, 35%);
+}
+
+/* Firefox Scrollbar */
+@supports (scrollbar-color: var(--secondary-clr) var(--primary-clr)) {
+    * {
+        scrollbar-color: var(--secondary-clr) var(--primary-clr);
+    }
+}
+
+/* MEDIA QUERIES */
+
+// LARGE SCREENS
+@media screen and (max-width: 1150px) {
+
+    body {
+        font-size: 14px;
+    }
+
+    .crypto-app {
+        width: 780px;
+    }
+
+    .crypto-search-hl {
+        font-size:  22px;
+    }  
+    
+    .search-form { 
+        .search-icon {
+            width: 18px;
+            height: 18px;
+        }
+
+        .coin-search-input {
+            font-size: 14px;
+            width: 230px;
+            height: 42px;
+        }
+    }
+
+    .btn-control-wrapper {
+        .btn-control {
+            width: 42px;
+            height: 42px;
+
+            .plus-icon,
+            .minus-icon {
+                width: 26px;
+                height: 26px;
+            }
+
+            .currency-icon {
+                width: 20px;
+                height: 20px;
+            }
+
+            .refresh-icon {
+                width: 23px;
+                height: 23px;
+            }
+        }
+    }
+
+    .row-left-container {
+        .coin-name-container {
+            .coin-name-container-inner {
+                .coin-name {
+                    font-size: 14px;
+                    width: 120px;
+                }
+            }
+        } 
+    }
+
+    .settingsbar-container {
+        width: 44px;
+    }
+
+    .settingsbar-top-border {
+        .settingsbar-top {
+            .theme-gradient-container {
+                width: 30px;
+            }
+    
+            .theme-gradient-container.darkmode {
+                height: 226px;
+            }
+    
+            .theme-gradient-container.lightmode {
+                height: 136px;
+            }
+    
+            .theme-gradient-container .theme-gradient {
+                width: 20px;
+                height: 20px;
+            }
+    
+            .theme-gradient-container .theme-gradient.active::before {
+                width: 12px;
+                height: 12px;
+            }
+        }
+    }
+
+    .settingsbar-middle {
+        .settings-btn {
+            width: 30px;
+            height: 36px;
+        
+            .settings-icon {
+                width: 22px;
+                height: 22px;
+            }
+        }
+    }
+
+    .settingsbar-bottom-border {
+        .settingsbar-bottom {
+            .lightmode-toggle-container {
+                width: 30px;
+    
+                .lightmode-toggle:not(.active) svg {
+                    transform: scale(.8);
+                }
+    
+                .lightmode-toggle.active svg {
+                    transform: scale(1.01);
+                }
+            }
+        }
+    }
+}
+
+// MEDIUM SCREENS
+@media screen and (max-width: 960px) {
+
+    .crypto-app {
+        padding-top: 136px;
+        width: 580px;
+    }
+
+    .crypto-search-hl {
+        font-size: 24px;
+        position: absolute;
+        top: -58px;
+        left: 50%;
+        transform: translate(-50%);
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .coin-listing-header {
+
+        .listing-header-left {
+            width: 43.5%;
+        }
+    
+        .listing-header-right {
+            width: 56.5%;
+        }
+    }
+
+    .coin-row {
+        .row-left-container {
+            width: 43.5%;
+
+            .coin-name-container-inner {
+                .coin-name {
+                    width: 116px;
+                }  
+            }
+        }
+            
+        .row-right-container {
+            width: 56.5%;
+        }
+    }
+
+    .back-to-top-container {
+        width: 40px;
+        height: 40px;
+    
+        .back-to-top-icon {
+            width: 34px;
+            height: 34px;
+        }
+    }
+
+    @media (hover: none) and (pointer: coarse) { /* Fix bigger font-size Firefox mobile */
+        @-moz-document url-prefix() { 
+            .coin-listing-header {
+                font-size: 12px;
+            }
+
+            .coin-row {
+                .row-left-container {
+                    .coin-rank {
+                        font-size: 12px;
+                    }
+
+                    .coin-name-container-inner {
+                        .coin-name {
+                            font-size: 12px;
+                        }  
+                    }
+                }
+
+                .row-right-container {
+                    font-size: 12px;
+                }    
+            }
+        }
+    }
+}
+
+// SMALL SCREENS
+@media screen and (max-width: 725px) {
+
+    .crypto-app {
+        padding-top: 122px;
+        padding-top: 127px;
+        width: 500px;
+    } 
+
+    .crypto-search-hl {
+        top: -52px;
+    }
+
+    .search-container-border {
+        height: min-content;
+
+        .search-container {
+            flex-wrap: wrap;
+            align-content: center;
+            padding: 20px;
+    
+            .search-form {
+                width: 100%;
+    
+                .coin-search-input {
+                    width: 100%;
+                }
+            }
+        
+            .btn-control-wrapper {
+                justify-content: center;
+                width: 100%;
+                margin-top: 15px;
+    
+                > :not(:last-child) {
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+
+    .coin-listing-header {
+        .listing-header-left {
+            width: 53%;
+            padding: 11px 0 11px 20px;
+        }
+    
+        .listing-header-right {
+            width: 47%;
+
+            .listing-header-right-inner {
+                padding: 11px 20px 11px 0;
+            }
+        }
+    }    
+
+    .coin-row {
+        .row-left-container {
+            width: 53%;
+            padding: 22px 0 22px 20px;
+
+            .coin-rank {
+                font-size: 12px;
+            }
+
+            .coin-img {
+                width: 24px;
+                height: 24px;
+            }
+
+            .coin-name-container-inner {
+                .coin-name {
+                    font-size: 12px;
+                }
+
+                .coin-name-short {
+                    font-size: 10px;
+                }
+            }
+        }
+    
+        .row-right-container {
+            width: 47%;
+            
+            .row-right-container-inner {
+                padding: 22px 20px 22px 0;
+            }
+        }
+    }
+
+    .settingsbar-top-border,
+    .settingsbar-bottom-border {
+        height: calc(50% - 10px);
+    }
+
+    .settingsbar-middle {
+        height: 20px;
+
+        .settings-btn.desktop {
+            display: none;
+        }
+    }
+
+    .settings-btn.mobile {
+        display: flex;
+    }
+}
+
+// XS SCREENS
+@media screen and (max-width: 520px) {
+
+    .crypto-app {
+        padding-top: 118px;
+        padding-top: 123px;
+        width: 380px;
+    } 
+    
+    .crypto-search-hl {
+        top: -50px;
+    }
+
+    .coin-row {
+        .row-left-container {
+            .coin-name-container-inner {
+                .coin-name {
+                    width: 85px;
+                }
+            }
+        }
+    }
+}
+
+// XXS SCREENS
+@media screen and (max-width: 400px) {
+    .crypto-app {
+        width: 340px;
+    } 
+
+    .coin-row {
+        .row-left-container {
+            .coin-name-container-inner {
+                .coin-name {
+                    width: 75px;
+                }
+            }
+        }
+    }
+}
+
+// XXXS SCREENS
+@media screen and (max-width: 360px) {
+    .crypto-app {
+        width: 300px;
+    } 
+
+    .coin-listing-header {
+        .listing-header-left {
+            width: 58%;
+        }
+    
+        .listing-header-right {
+            width: 42%;
+        }
+    }    
+
+    .coin-row {
+        .row-left-container {
+            width: 58%;
+
+            .coin-name-container-inner {
+                .coin-name {
+                    width: 75px;
+                }
+            }
+        }
+    
+        .row-right-container {
+            width: 42%;
+        }
+    }
+}

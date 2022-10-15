@@ -1,0 +1,95 @@
+@use '../utilities/mixins' as *;
+
+.settingsbar-top-border {
+    position: relative;
+    left: -115%;
+    transition: left 400ms ease-in-out;
+    height: calc(50% - 27px);
+    background: linear-gradient(-225deg, var(--gradient-clr1) 0%, var(--gradient-clr2) 100%);
+    border-bottom-right-radius: var(--border-radius-2);
+    padding: 0 1px 1px 0;
+
+    .settingsbar-top {
+        @include defaultFlex;
+        background: var(--primary-clr);
+        height: 100%;
+        border-bottom-right-radius: 3px;
+        padding: 8px 0;
+
+        .theme-gradient-container {
+            @include defaultFlex($j-content: space-between);
+            flex-direction: column;
+            background: var(--secondary-clr);
+            width: 34px;
+            border-radius: var(--border-radius-2);
+            padding: 14px 0;
+
+            &.darkmode {
+                height: 240px;
+            }
+
+            &.lightmode {
+                display: none;
+                height: 150px;
+            }
+
+            .theme-gradient {
+                @include defaultFlex;
+                width: 22px;
+                height: 22px;
+                border-radius: 50%;
+                cursor: pointer;
+                &.dark.active { border: 1px solid hsl(240, 4%, 11%); }
+                &.light.active { border: 1px solid #F1F1F1; }
+            }
+
+            .theme-gradient.active::before { /* selected dot */
+                content: '';
+                width: 14px;
+                height: 14px;
+                border-radius: 50%;
+                animation: growDot 50ms;
+            }
+
+            .theme-gradient.dark.active::before {
+                background: var(--secondary-clr);
+            }
+    
+            .theme-gradient.light.active::before {
+                background: #F1F1F1;
+            }
+
+            @keyframes growDot {
+                from {
+                    transform: scale(0);
+                }
+            }
+
+            .theme-gradient.dark.one {
+                background: linear-gradient(-225deg, var(--turquoise-clr) 0%, var(--pink-clr) 100%);
+            }
+            .theme-gradient.dark.two {
+                background: linear-gradient(-225deg, var(--blue-clr-1) 0%, var(--red-clr-3) 100%);
+            }
+            .theme-gradient.dark.three {
+                background: linear-gradient(-225deg, var(--purple-clr) 0%, var(--green-clr-1) 100%);
+            }
+            .theme-gradient.dark.four {
+                background: linear-gradient(-225deg, var(--yellow-clr-1) 0%, var(--blue-clr-2) 100%);
+            }
+            .theme-gradient.dark.five {
+                background: linear-gradient(-225deg, var(--red-clr-3) 0%, var(--yellow-clr-2) 100%);
+            }
+    
+            .theme-gradient.light.one {
+                background: hsl(240, 4%, 23%);
+            }
+            .theme-gradient.light.two {
+                background: linear-gradient(-225deg, var(--blue-clr-3) 0%, var(--red-clr-1) 100%);
+            }
+            .theme-gradient.light.three {
+                background: linear-gradient(-225deg, var(--red-clr-2) 0%, var(--yellow-clr-3) 100%);
+            }
+        } 
+    }
+}

@@ -1,0 +1,24 @@
+@use '../utilities/mixins' as *;
+
+    .settings-btn.mobile {
+        @include defaultFlex($j-content: center);
+        display: none;
+        position: absolute;
+        top: 5px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 36px;
+        height: 36px;
+        background: var(--secondary-clr);
+        border-radius: var(--border-radius-2);
+        cursor: pointer;
+        &.hide { display: none; }
+    
+        .settings-icon.mobile {
+            width: 25px;
+            height: 25px;
+            fill: var(--white-clr);
+            transition: transform 400ms;
+            &.rotate { transform: rotate(180deg); }
+        }
+    }

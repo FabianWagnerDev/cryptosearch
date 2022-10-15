@@ -1,0 +1,52 @@
+:root {
+    --primary-clr: hsl(240, 4%, 11%);
+    --secondary-clr: hsl(240, 4%, 23%);
+    --gradient-clr1: var(--turquoise-clr);
+    --gradient-clr2: var(--pink-clr);
+    --positive-percent-clr: var(--turquoise-clr);
+    --negative-percent-clr: var(--pink-clr);
+    --white-clr: hsl(0, 0%, 96.2%);
+    --placeholder-clr: hsl(0, 0%, 54%);
+    --active-order-icon-fill: hsl(240, 4%, 23%);
+
+    // dark gradient 1, default
+    --turquoise-clr: hsl(174, 72%, 56%);
+    --pink-clr: hsl(330, 100%, 50%);
+
+    // dark gradient 2
+    --blue-clr-1: hsl(196, 96%, 49%);
+    --red-clr-3: hsl(349, 74%, 58%);
+
+    // dark gradient 3
+    --purple-clr: hsl(263, 56%, 66%);
+    --green-clr-1: hsl(176, 100%, 32%);
+
+    // dark gradient 4
+    --yellow-clr-1: hsl(51, 58%, 62%);
+    --blue-clr-2: hsl(206, 74%, 63%);
+
+    // dark gradient 5
+    --yellow-clr-2: hsl(50, 95%, 56%);
+    // --red-clr-3: hsl(349, 74%, 58%);
+    // --green-clr-1: hsl(176, 100%, 32%);
+
+    // light gradient 1
+    --red-clr-2: hsl(349, 74%, 60%);
+    --green-clr-2: hsl(176, 100%, 26%);
+
+    // light gradient 2
+    --blue-clr-3:  hsl(196, 96%, 44%);
+    --red-clr-1: hsl(349, 74%, 62%);
+
+    // light gradient 3
+    --yellow-clr-3: hsl(50, 95%, 48%);
+    // --red-clr-2: hsl(349, 74%, 60%);
+    // --green-clr-2: hsl(176, 100%, 26%);
+
+    // Other
+    --border-radius-1: 8px;
+    --border-radius-2: 4px;
+    --arrow-default: rotate(0);
+    --arrow-down: rotate(90deg);
+    --arrow-up: rotate(-90deg);
+}

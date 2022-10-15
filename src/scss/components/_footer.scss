@@ -1,0 +1,64 @@
+@use '../utilities/mixins' as *;
+
+.main-footer {
+    width: 100%;
+    border-top: 1px solid var(--secondary-clr);
+    margin-top: 100px;
+    margin-bottom: 60px;
+
+    .quote-container {
+        @include defaultFlex;
+        flex-direction: column;
+
+        .quote-text {
+            @include defaultFlex;
+            text-align: center;
+            font-size: 14px;
+            min-height: 120px;
+            padding: 20px 30px; 
+        }
+
+        .btn-get-quote-border {
+            background: var(--secondary-clr);
+            border-radius: var(--border-radius-2);
+            padding: 1px;
+
+            &:hover {
+                background: linear-gradient(-225deg, var(--gradient-clr1) 0%, var(--gradient-clr2) 100%);
+                animation: wiggleFX 240ms;
+            }
+
+            &.blend-in {
+                animation-name: blendInBtn;
+                animation-duration: 2000ms;
+                animation-timing-function: ease-out;
+            }
+
+            @keyframes wiggleFX {
+                25% {
+                    transform: rotate(2.4deg);
+                }
+                75% {
+                    transform: rotate(-2.4deg);
+                }
+            }
+
+            @keyframes blendInBtn {
+                0% {
+                    opacity: 0;
+                    transform: scale(.9);
+                }
+            }
+
+            .btn-get-quote {
+                color: var(--white-clr);
+                background: var(--primary-clr);
+                cursor: pointer;
+                outline: none;
+                border: none;
+                border-radius: var(--border-radius-2);
+                padding: 8px 16px;
+            }
+        }
+    }
+}

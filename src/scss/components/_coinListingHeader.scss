@@ -1,0 +1,90 @@
+@use '../utilities/mixins' as *;
+
+.coin-listing-header {
+    @include defaultFlex($j-content: space-between);
+    width: 100%;
+    font-weight: 600;
+    border: 1px solid var(--secondary-clr);
+    border-radius: var(--border-radius-1);
+    user-select: none;
+
+    .listing-header-left {
+        @include defaultFlex;
+        width: 31%;
+        padding: 11px 0 11px 22px;
+
+        .header-element {
+            @include defaultFlex($j-content: flex-start);
+            &.rank {
+                width: 25.8%;
+            }
+            &.coin {
+                width: 74.2%;
+            }
+        }
+    }
+
+    .listing-header-right {
+        @include defaultFlex($j-content: flex-start);
+        width: 69%;
+        overflow-x: scroll;
+        scrollbar-width: none; /* Firefox */
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        .listing-header-right-inner {
+            @include defaultFlex;
+            width: 100%;
+            min-width: 470px;
+            height: 100%;
+            padding: 11px 22px 11px 0;
+
+            .header-element {
+                @include defaultFlex($j-content: flex-end);
+                &.price {
+                    width: 20%;
+                }
+                &.volume {
+                    width: 31%;
+                }
+                &.price-change {
+                    width: 18.5%;
+                }
+                &.mkt-cap {
+                    width: 30.5%;
+                }
+            }
+        }
+    }
+
+    .header-element {
+        .header-element-clickable {
+            @include defaultFlex($j-content: flex-end);
+            border-radius: 2px;
+            cursor: pointer;
+        }
+
+        .header-element-clickable .order-icon {
+            fill: var(--white-clr);
+            width: 15px;
+            height: 15px;
+            margin-right: 7px;
+            background: var(--secondary-clr);
+            border-radius: 2px;
+            transition: transform 240ms;
+            &.active {
+                background: linear-gradient(225deg, var(--gradient-clr1), var(--gradient-clr2));
+                fill: var(--active-order-icon-fill);
+            }
+            &.price,
+            &.volume,
+            &.price-change {
+                transform: var(--arrow-default);
+            }
+            &.mkt-cap {
+                transform: var(--arrow-down);
+            }
+        }        
+    }
+}   

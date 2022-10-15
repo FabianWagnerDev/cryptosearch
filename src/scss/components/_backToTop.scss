@@ -1,0 +1,22 @@
+@use '../utilities/mixins' as *;
+
+.back-to-top-container {
+    @include defaultFlex;
+    position: fixed;
+    bottom: 18px;
+    right: -160px;
+    transition: right 1200ms ease-out;
+    width: 45px;
+    height: 45px;
+    background: var(--secondary-clr);
+    border-radius: var(--border-radius-2);
+    cursor: pointer;
+    outline: none;
+    z-index: 999;
+
+    .back-to-top-icon {
+        width: 36px;
+        height: 36px;
+        fill: var(--white-clr);
+    }
+}
